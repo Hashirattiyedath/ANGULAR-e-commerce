@@ -32,7 +32,7 @@
 
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let item of productList">
+        <ng-container *ngFor="let item of productList | filter:searchKey :'title' ">
             <div class="card col-md-3">
                 <img src="{{item.image}}" alt="">
                 <h5 class="title">{{item.title}}</h5>

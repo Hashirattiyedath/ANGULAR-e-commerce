@@ -10,6 +10,8 @@ import { CartService } from 'src/app/service/cart.service';
 export class ProductsComponent implements OnInit {
 
   productList: any;
+  searchKey: any;
+
   constructor(
     public _api: ApiService,
     private cartService: CartService
@@ -23,6 +25,10 @@ export class ProductsComponent implements OnInit {
         Object.assign(a, {quantity: 1, total: a.price})
       });
     }) 
+
+    this.cartService.search.subscribe((resp: any) => {
+      this.searchKey = resp;
+    })
   }
 
   addToCart(item: any) {
